@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --oscuro: #21242e;
+    --amarillo: #ffd169;
+    --rojo: #ec606d;
+    --azul: #78a5b4;
+    --blanco: #ffffff;
+
+    --texto: #f0f0f0;
+    --texto-oscuro: #2d2d2d;
+
+    --radio: 14px;
+
+    --fuente: "Nunito", sans-serif;
+}
+
+/* ================================
+    ESTILOS GENERALES
+================================ */
+body {
+    font-family: var(--fuente);
+    background: var(--oscuro);
+    color: var(--texto);
+    line-height: 1.7;
+}
+
+/* Suavidad en desplazamiento */
+html {
+    scroll-behavior: smooth;
+}
+header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo EG minimal lineal */
+.logo {
+    display: flex;
+    align-items: center;
+    color: var(--amarillo);
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    gap: 0.5rem;
+}
+
+.logo .line {
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: var(--amarillo);
+    opacity: 0.7;
+}
+
+nav ul {
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    color: var(--texto);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+}
+
+nav a:hover {
+    color: var(--amarillo);
+}
+
+/* Línea sutil al pasar el ratón */
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--amarillo);
+    left: 0;
+    bottom: -4px;
+    transition: width .3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.hero {
+    padding: 6rem 1rem;
+    text-align: center;
+    background: linear-gradient(135deg, #1a1c24, #2c303b);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    color: #ffd169;
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.sobre-mi {
+    max-width: 850px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: #2c303b;
+    border-radius: var(--radio);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+
+.sobre-mi h2,
+.portafolio h2,
+.contacto h2,
+.tecnologias h2 {
+    color: #ffd169;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.tecnologias {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 2rem;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.tools {
+    background: #2c303b;
+    padding: 1.2rem;
+    text-align: center;
+    font-weight: 600;
+    border-radius: var(--radio);
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: transform .2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .7rem;
+}
+
+.tools img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    opacity: 0.85;
+    transition: opacity .3s ease;
+}
+
+.portafolio {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.grid-proyectos {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.proyecto {
+    background: #2c303b;
+    padding: 1.1rem;
+    border-radius: var(--radio);
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: transform .25s;
+}
+
+.proyecto:hover {
+    transform: translateY(-8px);
+    border-color: var(--rojo);
+}
+
+.proyecto img {
+    width: 100%;
+    border-radius: var(--radio);
+}
+
+.proyecto h3 {
+    margin-top: 0.7rem;
+    color: var(--amarillo);
+}
+
+.contacto {
+    max-width: 600px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: #2c303b;
+    border-radius: var(--radio);
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+input, textarea {
+    background: #1c1e25;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 1rem;
+    border-radius: var(--radio);
+    color: var(--texto);
+}
+
+button {
+    background: var(--amarillo);
+    color: var(--texto-oscuro);
+    padding: 1rem;
+    border: none;
+    border-radius: var(--radio);
+    transition: 0.3s;
+    font-weight: 700;
+}
+
+button:hover {
+    background: var(--rojo);
+    color: var(--blanco);
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+    .grid-proyectos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-proyectos {
+        grid-template-columns: 1fr;
+    }
+
+    .tech-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+}
